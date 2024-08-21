@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Lista da equipe Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <h1 class="text-primary">Equipe</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Componentes</th>
+                    <th scope="col">Função</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for equipe in equipes %}
+                <tr>
+                    <td>{{ equipe.componentes }}</td>
+                    <td>{{ equipe.funcao }}</td>
+                    <td>
+                        <a href="{% url 'update_equipe' equipe.id %}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{% url 'delete_equipe' equipe.id %}" class="btn btn-sm btn-danger">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_equipe' %}" class="btn btn-primary mt-3">Criar Equipe</a>
+    </div>
+</div>
+<!-- Lista da equipe End -->
+{% endblock %}

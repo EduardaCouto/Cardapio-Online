@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Formulário de Alimento Start -->
+<div class="container-fluid contact py-5">
+    <div class="container py-5">
+        <div class="p-5 bg-light rounded">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12">
+                    <div class="text-center mx-auto" style="max-width: 700px;">
+                        <h1 class="text-primary"></h1>
+                        <p class="mb-4">Preencha os campos abaixo para adicionar ou editar um alimento.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="w-100 btn border-secondary py-3 bg-white text-primary">Salvar</button>
+                        <a href="{% url 'list_alimentos' %}" class="w-100 btn border-secondary py-3 bg-white text-primary mt-3">Voltar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Formulário de Alimento End -->
+{% endblock %}

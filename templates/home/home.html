@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">HOME</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="/restricao/minhas_solicitacoes">Minha solicitação</a></li>
+        <li class="breadcrumb-item"><a href="/cardapio/listar">Cardápio</a></li>
+        <li class="breadcrumb-item active text-white"></li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Proteína</th>
+                    <th scope="col">Carboidratos</th>
+                    <th scope="col">Acompanhamento</th>
+                    <th scope="col">Feijão</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Feedback</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for cardapio in cardapios %}
+                    <tr>
+                        <td>
+                            <p class="mb-0 mt-4">{{ cardapio.proteina }}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{ cardapio.carboidrato }}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{ cardapio.acompanhamento }}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{ cardapio.leguminosa }}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{ cardapio.hora }}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{ cardapio.data }}</p>
+                        </td>
+                        <td>
+                            <a href="{% url 'criar_feedback' cardapio.id %}" class="btn btn-primary mt-4">feedback</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Cart Page End -->
+{% endblock %}
+

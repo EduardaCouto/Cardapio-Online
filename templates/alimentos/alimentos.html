@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Lista de Alimentos Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto" style="max-width: 700px;">
+            <h1 class="text-primary">Alimentos</h1>
+            <p class="mb-4">Gerencie a disponibilidade dos alimentos abaixo.</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Disponibilidade</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alimento in alimentos %}
+                <tr>
+                    <td>{{ alimento.nome }}</td>
+                    <td>{{ alimento.disponibilidade }}</td>
+                    <td>
+                        <a href="{% url 'update_alimento' alimento.id %}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{% url 'delete_alimento' alimento.id %}" class="btn btn-sm btn-danger">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_alimento' %}" class="btn btn-primary mt-3">Colocar Alimento</a>
+    </div>
+</div>
+<!-- Lista de Alimentos End -->
+{% endblock %}

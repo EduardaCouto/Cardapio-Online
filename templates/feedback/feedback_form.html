@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Formulário de Feedback Start -->
+<div class="container-fluid contact py-5">
+    <div class="container py-5">
+        <div class="p-5 bg-light rounded shadow-lg">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12">
+                    <div class="text-center mx-auto mb-4" style="max-width: 700px;">
+                        <h1 class="text-primary">Escreva Seu Feedback</h1>
+                        <p class="mb-4">Preencha os campos abaixo para adicionar ou editar um feedback.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.as_p }}
+                        </div>
+                        <button type="submit" class="w-100 btn border-secondary py-3 bg-white text-primary">Salvar</button>
+                        <a href="{% url 'list_feedback' %}" class="w-100 btn border-secondary py-3 bg-white text-primary mt-3">Ver anteriores</a>
+                        <a href="{% url 'cardapio_list' %}" class="w-100 btn border-secondary py-3 bg-white text-primary mt-3">Voltar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Formulário de Feedback End -->
+{% endblock %}

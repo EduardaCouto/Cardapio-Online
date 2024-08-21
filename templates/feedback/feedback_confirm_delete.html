@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Confirmação de Exclusão de Feedback Start -->
+<div class="container-fluid contact py-5">
+    <div class="container py-5">
+        <div class="p-5 bg-light rounded shadow-lg">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12">
+                    <div class="text-center mx-auto mb-4" style="max-width: 700px;">
+                        <h1 class="text-primary">Confirmar Exclusão de Feedback</h1>
+                        <p class="mb-4">Tem certeza que deseja excluir este feedback?</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form action="{% url 'delete_feedback' feedback.id %}" method="post" class="text-center">
+                        {% csrf_token %}
+                        <button type="submit" class="w-100 btn border-secondary py-3 bg-white text-primary">Confirmar Exclusão</button>
+                    </form>
+                    <br>
+                    <a href="{% url 'list_feedback' %}" class="w-100 btn border-secondary py-3 bg-white text-primary mt-3">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Confirmação de Exclusão de Feedback End -->
+{% endblock %}
+

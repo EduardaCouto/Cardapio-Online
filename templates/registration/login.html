@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cardápio Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Importação da fonte */
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url() no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-header h1 {
+            font-size: 2rem;
+            color: #28a745; /* Primary green color */
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .login-form .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .login-form .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #495057;
+        }
+
+        .login-form .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745; /* Primary green color */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form .btn:hover {
+            background-color: #218838; /* Darker green color */
+        }
+
+        .register-link {
+            margin-top: 20px;
+        }
+
+        .register-link p {
+            color: #6c757d;
+        }
+
+        .register-link a {
+            color: #28a745; /* Primary green color */
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Login</h1>
+                <p>Acesse sua conta para visualizar o cardápio online</p>
+            </div>
+            <form method="post" class="login-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+            <div class="register-link">
+                <p>Não tem uma conta? <a href="/accounts/register/">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

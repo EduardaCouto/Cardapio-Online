@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto" style="max-width: 700px;">
+            <h1 class="text-primary">Solicitações</h1>
+            <p class="mb-4">Gerencie suas solicitações de restrição alimentar abaixo.</p>
+        </div>
+        {% if restricoes %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% csrf_token %}
+                        <tr>
+                            <td>{{ restricoes.descricao }}</td>
+                            <td>{{ restricoes.status }}</td>
+                            <td>
+                                <a href="{% url 'delete_restricao' restricoes.id %}" class="btn btn-danger btn-sm">Deletar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="text-center">Você ainda não possui nenhuma restrição.</p>
+            <div class="text-center">
+                <a href="/restricao/criar_solicitacao/" class="btn btn-primary">Solicitar</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

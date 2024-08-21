@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Lista de Cardápios Start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Home</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#"></a></li>
+        <li class="breadcrumb-item"><a href="#"></a></li>
+        <li class="breadcrumb-item active text-white"></li>
+    </ol>
+</div>
+<!-- Single Page Header End --> 
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto" style="max-width: 700px;">
+           
+            <br>
+            <h1 class="text-primary">Cardápios Criados</h1>
+            <p class="mb-4">Gerencie os cardápios criados abaixo.</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Proteína</th>
+                    <th scope="col">Carboidrato</th>
+                    <th scope="col">Acompanhamento</th>
+                    <th scope="col">Leguminosa</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Nutricionista</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cardapio in cardapios %}
+                <tr>
+                    <td>{{ cardapio.proteina }}</td>
+                    <td>{{ cardapio.carboidrato }}</td>
+                    <td>{{ cardapio.acompanhamento }}</td>
+                    <td>{{ cardapio.leguminosa }}</td>
+                    <td>{{ cardapio.hora }}</td>
+                    <td>{{ cardapio.data }}</td>
+                    <td>{{ cardapio.nutricionista }}</td>
+                    <td>
+                        <a href="{% url 'cardapio_update' cardapio.id %}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{% url 'cardapio_delete' cardapio.id %}" class="btn btn-sm btn-danger">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Lista de Cardápios End -->
+{% endblock %}

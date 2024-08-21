@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criar Alimento</title>
+</head>
+<body>
+    <h1>Criar Alimento</h1>
+    <form method="post" action="{% url 'criar_solicitacao' %}">
+        {% csrf_token %}
+        <button type="submit">Adicionar Alimento</button>
+    </form>
+</body>
+</html>
+

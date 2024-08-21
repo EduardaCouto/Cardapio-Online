@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Lista de Solicitações Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-4" style="max-width: 700px;">
+            <h1 class="text-primary">Gerenciar Solicitações</h1>
+            <p class="mb-4">Visualize e gerencie suas solicitações abaixo.</p>
+        </div>
+        {% if usuarios %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Usuário</th>
+                        <th scope="col">Matricula</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.matricula }}</td>
+                        <td>{{ usuario.restricao.descricao }}</td>
+                        <td>{{ usuario.restricao.status }}</td>
+                        <td>
+                            <a href="{% url 'delete_restricao' usuario.restricao.id %}" class="btn btn-sm btn-danger">Excluir</a>
+                            <a href="{% url 'editar_restricao' usuario.restricao.id %}" class="btn btn-sm btn-primary ml-2">Editar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="text-center">Não há solicitações.</p>
+        {% endif %}
+    </div>
+</div>
+<!-- Lista de Solicitações End -->
+{% endblock %}

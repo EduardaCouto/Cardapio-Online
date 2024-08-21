@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Cadastro - Cardápio Online</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <style>
+    body {
+      background: url ('https://bahiaeconomica.com.br/wp/wp-content/uploads/2022/02/ifbaiano.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .register-box {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .register-header h1 {
+      font-size: 2rem;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    .register-header p {
+      color: #6c757d;
+      margin-bottom: 30px;
+    }
+
+    .register-form .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .register-form .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #495057;
+    }
+
+    .register-form .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #495057;
+    }
+
+    .register-form .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .register-form .btn:hover {
+      background-color: #218838;
+    }
+
+    .login-link {
+      margin-top: 20px;
+    }
+
+    .login-link p {
+      color: #6c757d;
+    }
+
+    .login-link a {
+      color: #28a745;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+      <div class="register-box">
+        <div class="register-header">
+          <h1>Cadastro</h1>
+          <p>Preencha os dados abaixo para criar sua conta</p>
+        </div>
+        <form method="post" class="register-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn">Criar Conta</button>
+        </form>
+        <div class="login-link">
+          <p>Já tem uma conta? <a href="/accounts/login/">Entrar</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+ 
+
+</body>
+
+</html>
